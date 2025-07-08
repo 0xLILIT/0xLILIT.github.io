@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2d</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        padding-top: 16px;
+        font-family: monospace;
+        background-color: black;
+        color: white;
+      }
+
+      p {
+        position: absolute;
+        bottom: 50px;
+        right: 50px;
+      }
+
+      #settings-container {
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Click anywhere inside the<br />
+      white box to add a physics body.
+    </p>
+    <canvas width="1000" height="1000"></canvas>
+    <div id="settings-container">
+      <label id="mass-slider-label" for="mass-slider">Mass of bodies</label>
+      <!-- <input -->
+      <!--   id="mass-slider" -->
+      <!--   name="mass-slider" -->
+      <!--   type="range" -->
+      <!--   value="100" -->
+      <!--   min="0" -->
+      <!--   max="1000" -->
+      <!--   step="0.5" -->
+      <!-- /> -->
+      <input
+        id="mass-input"
+        name="mass-input"
+        type="number"
+        value="100"
+        min="0"
+        max="1000"
+        step="0.5"
+      />
+
+      <label id="grav-slider-label" for="grav-slider"
+        >Gravitational Constant</label
+      >
+      <!-- <input -->
+      <!--   id="grav-slider" -->
+      <!--   name="grav-slider" -->
+      <!--   type="range" -->
+      <!--   value="1" -->
+      <!--   min="-1000" -->
+      <!--   max="1000" -->
+      <!--   step="0.5" -->
+      <!-- /> -->
+      <input
+        id="grav-input"
+        name="grav-input"
+        type="number"
+        value="1"
+        min="-1000"
+        max="1000"
+        step="0.5"
+      />
+
+      <label id="elasticity-slider-label" for="elasticity-slider"
+        >Elasticity of bodies</label
+      >
+      <!-- <input -->
+      <!--   id="elasticity-slider" -->
+      <!--   name="elasticity-slider" -->
+      <!--   type="range" -->
+      <!--   value="0.5" -->
+      <!--   min="0" -->
+      <!--   max="1000" -->
+      <!--   step="0.5" -->
+      <!-- /> -->
+      <input
+        id="elasticity-input"
+        name="elasticity-input"
+        type="number"
+        value="0.5"
+        min="0"
+        max="1000"
+        step="0.5"
+      />
+      <label id="debug-input-label" for="debug-input"
+        >Show debugging info</label
+      >
+      <input type="checkbox" name="debug-input" id="debug-input" />
+    </div>
+    <script type="module" src="/js/2d.js"></script>
+  </body>
+</html>
