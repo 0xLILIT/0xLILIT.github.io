@@ -97,9 +97,13 @@ export class Scene {
                 const b2 = this.bodies[j];
                 const displacement = b2.position.toSubtracted(b1.position);
                 const direction = displacement.toNormalized();
-                if (displacement.magnitudeSquared === 0)
+                let distance = displacement.magnitudeSquared;
+                if (distance === 0)
                     continue;
-                const distance = displacement.magnitude;
+                // TEST: Gravitational softening
+                const softening = 5;
+                distance = Math.sqrt(distance + softening ** 2);
+                // const distance: number = Math.max(5, displacement.magnitude);
                 const force = this.settings.scene.G * ((b1.mass * b2.mass) / distance ** 2);
                 const fx = force * direction.x;
                 const fy = force * direction.y;
